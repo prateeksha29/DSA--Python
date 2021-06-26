@@ -13,14 +13,22 @@ Output: 3
 
 # Create a dictionary of counter of the elements
 # Return the key with maximum value
+# Time complexity: O(n)
+# Space Complexity: O(n)
 
-from collections import defaultdict
+import collections
 
 
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
-        num_dict = defaultdict(int)
-        for num in nums:
-            num_dict[num] += 1
+    def majorityElement(self, nums):
+        counts = collections.Counter(nums)
+        return max(counts.keys(), key=counts.get)
 
-        return max(num_dict, key=num_dict.get)
+# sort the array
+# the element exist at nth or (n+1)th position
+# Time complexity: O(nlogn)
+# Space complexity: O(1)
+class Solution:
+    def majorityElement(self, nums):
+        nums.sort()
+        return nums[len(nums)//2]
