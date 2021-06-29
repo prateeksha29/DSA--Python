@@ -15,24 +15,25 @@ Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 """
 
-
+# Using three pointers for in place insertion
 class Solution:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        if m == 0:
-            for ind in range(len(nums2)):
-                nums1[ind] = nums2[ind]
-        if n == 0:
+        if n==0:
             return
-
-        ind2 = 0
-        for ind in range(m, len(nums1), 1):
-            nums1[ind] = nums2[ind2]
-            if ind2 == len(nums2) - 1:
+        p2 = n-1
+        p1 = m-1
+        for p in range(m+n-1, -1, -1):
+            print(p, p1, p2)
+            if p2 < 0:
                 break
-            ind2 += 1
 
-        nums1.sort()
+            if p1>=0 and nums1[p1] > nums2[p2]:
+                nums1[p] = nums1[p1]
+                p1 -= 1
+            else:
+                nums1[p] = nums2[p2]
+                p2 -= 1
 
