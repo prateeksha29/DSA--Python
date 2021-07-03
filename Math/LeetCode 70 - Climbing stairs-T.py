@@ -22,3 +22,36 @@ Explanation: There are three ways to climb to the top.
 3. 2 steps + 1 step
 """
 
+# dynamic programming approach
+# Time complexity: O(n)
+# Space complexity: O(n)
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n <= 2:
+            return n
+
+        num_dict = {1: 1, 2: 2}
+
+        for i in range(3, n + 1):
+            num_dict[i] = num_dict[i - 1] + num_dict[i - 2]
+
+        return num_dict[n]
+
+# Fibonacci
+# DP with constant memory
+# Time complexity: O(n)
+# Space complexity: O(1)
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n <= 2:
+            return n
+        first = 1
+        second = 2
+
+        for i in range(3, n + 1):
+            third = first + second
+
+            first = second
+            second = third
+
+        return second
