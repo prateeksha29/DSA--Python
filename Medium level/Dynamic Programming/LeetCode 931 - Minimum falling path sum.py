@@ -39,3 +39,17 @@ class Solution:
             result.append(res)
         return min(result)
 
+# Dynamic Programming with constant space
+class Solution:
+    def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+        for row in range(len(matrix) - 2, -1, -1):
+            for col in range(len(matrix[0])):
+                if col == 0:
+                    matrix[row][col] += min(matrix[row + 1][col], matrix[row + 1][col + 1])
+                elif col == len(matrix[0]) - 1:
+                    matrix[row][col] += min(matrix[row + 1][col - 1], matrix[row + 1][col])
+                else:
+                    matrix[row][col] += min(matrix[row + 1][col - 1], matrix[row + 1][col],
+                                            matrix[row + 1][col + 1])
+
+        return min(matrix[0])
