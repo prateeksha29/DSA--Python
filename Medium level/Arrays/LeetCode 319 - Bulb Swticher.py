@@ -13,6 +13,7 @@ After the third round, the three bulbs are [on, off, off].
 So you should return 1 because there is only one bulb is on.
 """
 # using perfect square property
+import math
 class Solution:
     def bulbSwitch(self, n: int) -> int:
         return int(n**0.5)
