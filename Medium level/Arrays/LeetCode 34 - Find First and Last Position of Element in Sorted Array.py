@@ -26,3 +26,6 @@ class Solution:
         if nums[s] == target:
             return [s, s]
         return [-1, -1]
+
+
+# Binary search
