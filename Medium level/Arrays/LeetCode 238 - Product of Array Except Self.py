@@ -12,14 +12,14 @@ Output: [24,12,8,6]
 # Time complexity: O(N)?
 # Space complexity: O(1) ?
 class Solution:
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
-        result = [1] * len(nums)
-        for i in range(1, len(nums)):
-            result[i] = result[i - 1] * nums[i - 1]
+    def productExceptSelf(self, num: List[int]) -> List[int]:
+        result = [1] * len(num)
+        for i in range(1, len(num)):
+            result[i] = result[i - 1] * num[i - 1]
 
         suffix = 1
-        for i in range(len(nums) - 1, -1, -1):
+        for i in range(len(num) - 1, -1, -1):
             result[i] *= suffix
-            suffix *= nums[i]
+            suffix *= num[i]
 
         return result
