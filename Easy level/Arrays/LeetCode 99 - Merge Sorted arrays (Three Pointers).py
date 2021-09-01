@@ -26,7 +26,6 @@ class Solution:
         p2 = n-1
         p1 = m-1
         for p in range(m+n-1, -1, -1):
-            print(p, p1, p2)
             if p2 < 0:
                 break
 
