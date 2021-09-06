@@ -1,2 +1,1 @@
-# LeetCode-Solutions---Python
-### Solutions for leetcode problems in Python3 
+Some famous DSA problems solved in Python3
