@@ -28,4 +28,4 @@ class Solution:
             while domain_holder:
                 counter[".".join(domain_holder)] += cnt
                 domain_holder.pop(0)
-        return [f'{cnt} {domain}' for domain, cnt in counter.items()]
+        return ['{} {}'.format(cnt, domain) for domain, cnt in counter.items()]
