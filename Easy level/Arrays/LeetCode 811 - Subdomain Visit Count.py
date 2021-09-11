@@ -17,15 +17,14 @@ We only have one website domain: "discuss.leetcode.com". As discussed above, the
 from collections import defaultdict
 
 
-class Solution:
-    def subdomain_visits(self, cpdomains: List[str]) -> List[str]:
-        counter = defaultdict(int)
+class Solution(object):
+    def subdomainVisits(self, cpdomains):
+        ans = defaultdict()
+        for domain in cpdomains:
+            count, domain = domain.split()
+            count = int(count)
+            frags = domain.split('.')
+            for i in range(len(frags)):
+                ans[".".join(frags[i:])] += count
 
-        for dm in cpdomains:
-            count, domain = dm.split()
-            domain_holder = domain.split('.')
-            cnt = int(count)
-            while domain_holder:
-                counter[".".join(domain_holder)] += cnt
-                domain_holder.pop(0)
-        return ['{} {}'.format(cnt, domain) for domain, cnt in counter.items()]
+        return ["{} {}".format(ct, dom) for dom, ct in ans.items()]
