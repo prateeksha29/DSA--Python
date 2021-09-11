@@ -24,6 +24,18 @@ class Solution:
         numbers = defaultdict(int)
         for i in range(2, int(sqrt(n))+1):
             if i not in numbers:
+                new_dict = {k:1 for k in range(i*i, n, i)}
+                numbers.update(new_dict)
+        # numbers - non primes - (1 and 0)
+        return n - len(numbers) - 2
+
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        if n<=2:
+            return 0
+        numbers = defaultdict(int)
+        for i in range(2, int(sqrt(n))+1):
+            if i not in numbers:
                 numbers.update(dict.fromkeys(list(range(i*i, n, i)), 1))
         # numbers - non primes - (1 and 0)
         return n - len(numbers) - 2
