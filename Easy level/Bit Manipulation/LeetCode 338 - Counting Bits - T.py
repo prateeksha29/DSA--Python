@@ -24,8 +24,6 @@ Can you do it without using any built-in function (i.e., like __builtin_popcount
 class Solution:
     def countBits(self, n: int) -> List[int]:
         dp = [0 for i in range(n+1)]
-        if n == 0:
-            return dp
         prev_pow = 1
         for i in range(1, n+1):
             if prev_pow * 2 == i:
