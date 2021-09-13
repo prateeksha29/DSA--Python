@@ -28,7 +28,5 @@ class Solution:
         for i in range(1, n+1):
             if prev_pow * 2 == i:
                 prev_pow = i
-                dp[i] = 1 + dp[i-prev_pow]
-            else:
-                dp[i] = 1 + dp[i-prev_pow]
+            dp[i] = 1 + dp[i-prev_pow]
         return dp
