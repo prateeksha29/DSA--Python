@@ -29,23 +29,23 @@ In this question, we represent the board using a 2D array. In principle, the boa
 class Solution:
     def gameOfLife(self, board):
 
-        neighbors = [(1,0), (0,1), (-1,0), (0,-1), (-1,-1), (1,1)]
+        neighbors = [(1,0), (0,1), (-1,0), (0,-1), (-1,-1), (1,1), (1,-1), (-1,1)]
 
         rows = len(board)
         cols = len(board[0])
 
-        for row in rows:
-            for col in cols:
+        for row in range(rows):
+            for col in range(cols):
                 live_neighbors = 0
                 for n in neighbors:
                     r = row + n[0]
                     c = col + n[1]
                     if rows > r >= 0 and cols > c >= 0 and abs(board[r][c]) == 1:
                         live_neighbors += 1
-                if board[row][col] == 1 and (live_neighbors<2 or live_neighbors>3):
+                if board[row][col] == 1 and (live_neighbors < 2 or live_neighbors > 3):
                     board[row][col] = -1
                 elif board[row][col] == 0 and live_neighbors == 3:
-                    board[row][col] == 2
+                    board[row][col] = 2
         # board = [[1 if board[row][col]>1 else 0 for col in range(cols)] for row in range(rows)]
         for row in range(rows):
             for col in range(cols):
