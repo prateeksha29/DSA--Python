@@ -53,5 +53,3 @@ class Solution:
                     board[row][col] = 1
                 else:
                     board[row][col] = 0
-
-
