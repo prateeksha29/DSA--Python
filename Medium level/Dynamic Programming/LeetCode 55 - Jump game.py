@@ -9,26 +9,26 @@ Output: true
 Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
 """
 # Recursion with memoization
-# class Solution:
-#     def jump(self,nums, i, dp):
-#         if i in dp.keys():
-#             return dp[i]
-#         elif i+nums[i]>= len(nums)-1:
-#             dp[i] =True
-#             return True
-#         else:
-#             for val in range(1,nums[i]+1):
-#                 prev = self.jump(nums, i+val, dp)
-#                 if prev == True:
-#                     dp[i] = True
-#                     break
-#             return dp[i]
-#     def canJump(self, nums: List[int]) -> bool:
-#         if len(nums) == 1:
-#             return True
-#         dp = {}
-#         dp[0] = self.jump(nums,0,dp)
-#         return dp[0]
+class Solution:
+    def jump(self,nums, i, dp):
+        if i in dp.keys():
+            return dp[i]
+        elif i+nums[i]>= len(nums)-1:
+            dp[i] =True
+            return True
+        else:
+            for val in range(1,nums[i]+1):
+                prev = self.jump(nums, i+val, dp)
+                if prev == True:
+                    dp[i] = True
+                    break
+            return dp[i]
+    def canJump(self, nums: List[int]) -> bool:
+        if len(nums) == 1:
+            return True
+        dp = {}
+        dp[0] = self.jump(nums,0,dp)
+        return dp[0]
 
 
 
